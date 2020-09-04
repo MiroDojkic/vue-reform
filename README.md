@@ -79,4 +79,5 @@ Automatically binds `FormControl` value based on the `name` prop.
 ### Props
 - `name: String` - used to automatically bind `FormControl` state values to field (value, errors, field meta data)
 - `label: String` (optional) - label associated with the field's form control element
+- `placeholder: String` (optional) - placeholder for the default input field
 - vee-validate's [validation-provider props](https://logaretm.github.io/vee-validate/api/validation-provider.html#props)
