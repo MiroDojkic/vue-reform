@@ -29,6 +29,7 @@
   },
   "homepage": "https://github.com/MiroDojkic/vue-reform#readme",
   "devDependencies": {
+    "@vue/test-utils": "^1.0.5",
     "bili": "^5.0.5",
     "eslint-config-xo-vue": "^3.1.22",
     "eslint-plugin-vue": "^6.2.2",
