@@ -14,7 +14,10 @@
       <div class="reform-input">
         <slot name="icon"></slot>
         <slot name="input" :on="{ input }" v-bind="{ value, errors }">
-           <input :value="value" @input="input($event.target.value)">
+           <input
+            :value="value"
+            @input="input($event.target.value)"
+            :placeholder="placeholder">
         </slot>
       </div>
     </label>
@@ -43,6 +46,10 @@ export default {
     },
     rules: {
       type: [String, Object],
+      default: null
+    },
+    placeholder: {
+      type: String,
       default: null
     }
   },
