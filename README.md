@@ -89,9 +89,9 @@ Automatically binds `FormControl` value based on the `name` prop.
 - no props
 #### **input**
 Props:
-- `value: [String, Number]` - The value specifies the value of an `<input>` element
-- `errors: String[]` - Field errors. Errors prop is array of strings.
-- `on: { [event]: listener }` - The event prop is the event emitted from that input. The listener is a function which will be called after the event occurs. Built in listeners: `[input]`
+- `value: [String, Number]` - field value, bound through the name prop
+- `errors: String[]` - field errors
+- `on: { [event]: listener }` - event listeners map that should be attached to a form element
 #### **error**
 Props:
-- `errors: String[]` - Field errors. Errors prop is array of strings.
+- `errors: String[]` - field errors
