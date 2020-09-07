@@ -1,6 +1,6 @@
 {
   "name": "vue-reform",
-  "version": "1.0.0-0",
+  "version": "1.0.0-1",
   "description": "Flexible form abstraction for Vue, inspired by Formik",
   "main": "dist/vue-reform.cjs.js",
   "module": "dist/vue-reform.esm.js",
