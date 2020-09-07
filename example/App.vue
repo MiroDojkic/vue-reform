@@ -1,28 +1,26 @@
 <template>
-  <form-control v-slot="{ submit }" @submit="logSubmit">
-      <form @submit.prevent="submit">
-        <form-field
-          name="name"
-          label="Name"
-          rules="required"
-          placeholder="Name" />
-        <button type="submit">Submit</button>
-      </form>
-  </form-control>
+  <re-form @submit="logSubmit">
+    <form-field
+      name="name"
+      label="Name"
+      rules="required"
+      placeholder="Name" />
+    <button type="submit">Submit</button>
+  </re-form>
 </template>
 
 <script>
 import { required } from 'vee-validate/dist/rules';
 import { extend } from 'vee-validate';
-import { FormControl, FormField } from '../src';
+import { Form as ReForm, FormField } from '../src';
 
 extend('required', required);
 
 export default {
-  components: { FormControl, FormField },
+  components: { ReForm, FormField },
   methods: {
-    logSubmit({ name }) {
-      console.log(name)
+    logSubmit(values) {
+      console.log('Form submit successful: ', { ...values })
     }
   },
 }
