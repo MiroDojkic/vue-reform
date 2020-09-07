@@ -81,3 +81,10 @@ Automatically binds `FormControl` value based on the `name` prop.
 - `label: String` (optional) - label associated with the field's form control element
 - `placeholder: String` (optional) - placeholder for the default input field
 - vee-validate's [validation-provider props](https://logaretm.github.io/vee-validate/api/validation-provider.html#props)
+
+### Slots
+#### **input**
+Props:
+- `value: [String, Number]` - The value specifies the value of a <form-field> element
+- `errors: String[]` - Field errors. Errors prop is array of strings.
+- `on: { [event]: listener }` - The event prop is the event emitted from that input. The listener is a function which will be called after the event occurs. Built in listeners: `[input]`
