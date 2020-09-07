@@ -1,8 +1,9 @@
 {
   "name": "vue-reform",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "Flexible form abstraction for Vue, inspired by Formik",
-  "main": "dist/index.js",
+  "main": "dist/vue-reform.cjs.js",
+  "module": "dist/vue-reform.esm.js",
   "files": [
     "dist"
   ],
@@ -12,10 +13,15 @@
       "dir": "example/dist"
     }
   },
+  "np": {
+    "yarn": false,
+    "contents": "dist"
+  },
   "scripts": {
     "build": "bili",
     "lint": "xo src/**/*.{vue,js}",
     "prepublish": "npm run build",
+    "release": "np",
     "dev": "poi -so"
   },
   "repository": {
@@ -32,6 +38,7 @@
     "bili": "^5.0.5",
     "eslint-config-xo-vue": "^3.1.22",
     "eslint-plugin-vue": "^6.2.2",
+    "np": "^6.5.0",
     "poi": "^12.10.2",
     "rollup-plugin-vue": "^5.1.9",
     "vue": "^2.6.12",
