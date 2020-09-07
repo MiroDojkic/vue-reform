@@ -3,6 +3,9 @@
 module.exports = {
   root: true,
   extends: '@extensionengine',
+  rules: {
+    'vue/comment-directive': 'off'
+  },
   overrides: [{
     files: ['src/**', 'example/**'],
     parserOptions: {
