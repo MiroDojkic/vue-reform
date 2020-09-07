@@ -39,8 +39,7 @@
     "eslint-plugin-vue": "^6.2.2",
     "np": "^6.5.0",
     "poi": "^12.10.2",
-    "rollup-plugin-commonjs": "^10.1.0",
-    "rollup-plugin-vue": "^5.1.9",
+    "rollup-plugin-vue": "5.1.1",
     "vue": "^2.6.12",
     "vue-template-compiler": "^2.6.12",
     "xo": "^0.33.1"
