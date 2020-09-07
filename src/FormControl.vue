@@ -20,10 +20,9 @@ export default {
     setValue(name, value) {
       this.$set(this.values, name, value);
     },
-    submit() {
-      const isValid = this.$refs.observer.validate()
-      if (!isValid) return;
-      this.$emit('submit', this.values);
+    async submit() {
+      const isValid = await this.$refs.observer.validate();
+      if (isValid) return this.$emit('submit', this.values);
     }
   },
   components: { ValidationObserver }

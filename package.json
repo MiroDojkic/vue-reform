@@ -18,7 +18,7 @@
   },
   "scripts": {
     "build": "bili",
-    "lint": "xo src/**/*.{vue,js}",
+    "lint": "xo src",
     "prepublish": "npm run build",
     "release": "np",
     "dev": "poi -so"

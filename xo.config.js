@@ -1,9 +1,6 @@
 module.exports = {
   extends: "xo-vue",
-  extensions: [
-    "js",
-    "vue"
-  ],
+  extensions: ["js", "vue"],
   rules: {
     indent: ['error', 2],
     "object-curly-spacing": [
