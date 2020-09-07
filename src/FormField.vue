@@ -35,28 +35,14 @@ import { ValidationProvider } from 'vee-validate';
 export default {
   name: 'vue-reform-field',
   inject: ['values', 'setValue'],
+  inheritAttrs: false,
   props: {
-    name: {
-      type: String,
-      required: true
-    },
-    label: {
-      type: String,
-      default: null
-    },
-    rules: {
-      type: [String, Object],
-      default: null
-    },
-    placeholder: {
-      type: String,
-      default: null
-    }
+    name: { type: String, required: true },
+    label: { type: String, default: null },
+    placeholder: { type: String, default: null }
   },
   computed: {
-    value() {
-      return this.values[this.name];
-    }
+    value: vm => vm.values[vm.name]
   },
   methods: {
     async input(value) {

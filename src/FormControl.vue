@@ -1,8 +1,6 @@
 <template>
-  <validation-observer v-slot="{ handleSubmit, ...rest }" tag="div">
-    <form @submit.prevent="handleSubmit(submit)">
-      <slot v-bind="{ values, setValue, ...rest }"></slot>
-    </form>
+  <validation-observer ref="observer" v-slot="veeProps" tag="div">
+    <slot v-bind="{ ...veeProps, values, setValue, submit }"></slot>
   </validation-observer>
 </template>
 
@@ -23,6 +21,8 @@ export default {
       this.$set(this.values, name, value);
     },
     submit() {
+      const isValid = this.$refs.observer.validate()
+      if (!isValid) return;
       this.$emit('submit', this.values);
     }
   },
