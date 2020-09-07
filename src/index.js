@@ -1,5 +1,5 @@
-import FormControl from './FormControl.vue';
 import Form from './Form.vue';
+import FormControl from './FormControl.vue';
 import FormField from './FormField.vue';
 
 export { FormControl, FormField, Form };

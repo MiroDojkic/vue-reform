@@ -1,10 +1,10 @@
 <template>
   <validation-provider
     v-slot="{ errors }"
+    ref="validationProvider"
     v-bind="$attrs"
     :vid="name"
     :name="name"
-    ref="validationProvider"
     class="reform-field"
     tag="div">
     <label>
@@ -14,9 +14,9 @@
       <div class="reform-input">
         <slot name="icon"></slot>
         <slot name="input" :on="{ input }" v-bind="{ value, errors }">
-           <input
-            :value="value"
+          <input
             @input="input($event.target.value)"
+            :value="value"
             :placeholder="placeholder">
         </slot>
       </div>

@@ -10,18 +10,18 @@
 </template>
 
 <script>
-import { required } from 'vee-validate/dist/rules';
+import { FormField, Form as ReForm } from '../src';
 import { extend } from 'vee-validate';
-import { Form as ReForm, FormField } from '../src';
+import { required } from 'vee-validate/dist/rules';
 
 extend('required', required);
 
 export default {
-  components: { ReForm, FormField },
   methods: {
     logSubmit(values) {
-      console.log('Form submit successful: ', { ...values })
+      console.log('Form submit successful: ', { ...values });
     }
   },
-}
+  components: { ReForm, FormField }
+};
 </script>
