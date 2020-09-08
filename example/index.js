@@ -1,4 +1,4 @@
-import * as VueReform from '../dist/vue-reform.esm';
+import * as VueReform from '../src';
 import App from './App.vue';
 import Vue from 'vue';
 
