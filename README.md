@@ -64,6 +64,9 @@ Emits `submit` event with `formBag` argument.
 #### **submit**
 Parameters:
 - `values: { [name]: value }` 
+#### **invalid**
+- `errors: { [name]: message }`
+- `values: { [name]: value }` 
 
 ### Slots
 #### **default**
@@ -95,3 +98,16 @@ Props:
 #### **error**
 Props:
 - `errors: String[]` - field errors
+
+## `Form`
+
+`form` element with bounded `FormControl`'s submit listener.
+
+### Events
+#### **submit**
+Parameters:
+- `values: { [name]: value }` 
+#### **invalid**
+Parameters:
+- `errors: { [name]: message }`
+- `values: { [name]: value }` 
