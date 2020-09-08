@@ -54,30 +54,22 @@ import { FormControl, FormField } from 'vue-reform';
 
 # Components
 
-## `FormControl`
+## `Form`
 
-Top-level form component that keeps track of form's state.
-Form fields are passed using the default slot.
-Emits `submit` event with `formBag` argument.
+`form` element with bounded `FormControl`'s submit listener.
 
 ### Events
 #### **submit**
 Parameters:
 - `values: { [name]: value }` 
 #### **invalid**
+Parameters:
 - `errors: { [name]: message }`
 - `values: { [name]: value }` 
 
-### Slots
-#### **default**
-Props:
-- `values: { [name]: value }`
-- `setValue: (name, value) => undefined`
-- vee-validate's [validation-observer scoped slot props](https://logaretm.github.io/vee-validate/api/validation-observer.html#scoped-slot-props)
-
 ## `FormField`
 
-Automatically binds `FormControl` value based on the `name` prop.
+Automatically binds `Form` or `FormControl` value and errors based on the `name` prop.
 
 ### Props
 - `name: String` - used to automatically bind `FormControl` state values to field (value, errors, field meta data)
@@ -99,15 +91,23 @@ Props:
 Props:
 - `errors: String[]` - field errors
 
-## `Form`
+## `FormControl`
 
-`form` element with bounded `FormControl`'s submit listener.
+Top-level form component that keeps track of form's state.
+Form fields are passed using the default slot.
+Emits `submit` event with `formBag` argument.
 
 ### Events
 #### **submit**
 Parameters:
 - `values: { [name]: value }` 
 #### **invalid**
-Parameters:
 - `errors: { [name]: message }`
 - `values: { [name]: value }` 
+
+### Slots
+#### **default**
+Props:
+- `values: { [name]: value }`
+- `setValue: (name, value) => undefined`
+- vee-validate's [validation-observer scoped slot props](https://logaretm.github.io/vee-validate/api/validation-observer.html#scoped-slot-props)
