@@ -1,10 +1,10 @@
 <template>
   <validation-provider
     v-slot="{ errors }"
+    ref="validationProvider"
     v-bind="$attrs"
     :vid="name"
     :name="name"
-    ref="validationProvider"
     class="reform-field"
     tag="div">
     <label>
@@ -14,9 +14,9 @@
       <div class="reform-input">
         <slot name="icon"></slot>
         <slot name="input" :on="{ input }" v-bind="{ value, errors }">
-           <input
-            :value="value"
+          <input
             @input="input($event.target.value)"
+            :value="value"
             :placeholder="placeholder">
         </slot>
       </div>
@@ -35,28 +35,14 @@ import { ValidationProvider } from 'vee-validate';
 export default {
   name: 'vue-reform-field',
   inject: ['values', 'setValue'],
+  inheritAttrs: false,
   props: {
-    name: {
-      type: String,
-      required: true
-    },
-    label: {
-      type: String,
-      default: null
-    },
-    rules: {
-      type: [String, Object],
-      default: null
-    },
-    placeholder: {
-      type: String,
-      default: null
-    }
+    name: { type: String, required: true },
+    label: { type: String, default: null },
+    placeholder: { type: String, default: null }
   },
   computed: {
-    value() {
-      return this.values[this.name];
-    }
+    value: vm => vm.values[vm.name]
   },
   methods: {
     async input(value) {

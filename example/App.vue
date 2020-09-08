@@ -1,22 +1,24 @@
 <template>
-  <form-control>
-    <form-field
+  <vue-reform @submit="handleSubmit" @invalid="handleInvalid">
+    <vue-reform-field
       name="name"
       label="Name"
       rules="required"
-      placeholder="Name"
-    />
-  </form-control>
+      placeholder="Name" />
+    <button type="submit">Submit</button>
+  </vue-reform>
 </template>
 
 <script>
-import { required } from 'vee-validate/dist/rules';
 import { extend } from 'vee-validate';
-import { FormControl, FormField } from '../src';
+import { required } from 'vee-validate/dist/rules';
 
-extend('required', { ...required });
+extend('required', required);
 
 export default {
-  components: { FormControl, FormField },
-}
+  methods: {
+    handleSubmit(values) {},
+    handleInvalid(errors, values) {}
+  }
+};
 </script>

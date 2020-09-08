@@ -1,8 +1,6 @@
 <template>
-  <validation-observer v-slot="{ handleSubmit, ...rest }" tag="div">
-    <form @submit.prevent="handleSubmit(submit)">
-      <slot v-bind="{ values, setValue, ...rest }"></slot>
-    </form>
+  <validation-observer ref="observer" v-slot="veeProps" tag="div">
+    <slot v-bind="{ ...veeProps, values, setValue, submit }"></slot>
   </validation-observer>
 </template>
 
@@ -22,8 +20,16 @@ export default {
     setValue(name, value) {
       this.$set(this.values, name, value);
     },
-    submit() {
-      this.$emit('submit', this.values);
+    emitInvalid() {
+      this.$emit('invalid', this.$refs.observer.errors, this.values);
+    },
+    async submit() {
+      const isValid = await this.$refs.observer.validate();
+      if (isValid) return this.$emit('submit', this.values);
+      // TODO: emit invalid after observer's state is set.
+      // vee-validate has a delay between resolved validate promise and
+      // errors being set on the observer. Timeout accounts for that.
+      setTimeout(this.emitInvalid, 50);
     }
   },
   components: { ValidationObserver }
