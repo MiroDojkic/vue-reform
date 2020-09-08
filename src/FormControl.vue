@@ -20,9 +20,16 @@ export default {
     setValue(name, value) {
       this.$set(this.values, name, value);
     },
+    emitInvalid() {
+      this.$emit('invalid', this.$refs.observer.errors, this.values);
+    },
     async submit() {
       const isValid = await this.$refs.observer.validate();
       if (isValid) return this.$emit('submit', this.values);
+      // TODO: emit invalid after observer's state is set.
+      // vee-validate has a delay between resolved validate promise and
+      // errors being set on the observer. Timeout accounts for that.
+      setTimeout(this.emitInvalid, 50);
     }
   },
   components: { ValidationObserver }

@@ -1,5 +1,5 @@
 <template>
-  <re-form @submit="logSubmit">
+  <re-form @submit="handleSubmit" @invalid="handleInvalid">
     <form-field
       name="name"
       label="Name"
@@ -18,9 +18,8 @@ extend('required', required);
 
 export default {
   methods: {
-    logSubmit(values) {
-      console.log('Form submit successful: ', { ...values });
-    }
+    handleSubmit(values) {},
+    handleInvalid(errors, values) {}
   },
   components: { ReForm, FormField }
 };
