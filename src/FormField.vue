@@ -19,7 +19,7 @@
       <slot name="label" v-bind="{ value, errors, ...veeProps }">
         <div v-if="label" class="reform-label">{{ label }}</div>
       </slot>
-      <div class="reform-input">
+      <div class="reform-control">
         <slot name="icon" v-bind="{ value, errors, ...veeProps }"></slot>
         <slot
           name="input" :on="{ input }" v-bind="{ value, errors, ...veeProps }">
@@ -69,17 +69,17 @@ export default {
   padding: 0 0.25rem;
 }
 
-.reform-input {
+.reform-control {
   background-color: transparent;
   border-radius: 3px;
   border: 1px solid #e5e5e5;
 }
 
-.reform-invalid.reform-dirty .reform-input {
-  border-color: #e74c3c;
+.reform-invalid.reform-dirty .reform-control {
+  box-shadow: 0 0 2px 1px #e74c3c;
 }
 
-.reform-input input {
+.reform-control .reform-input {
   width: 100%;
   padding: 0.125rem 0.25rem;
   border: none;
