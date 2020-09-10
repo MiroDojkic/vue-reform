@@ -4,6 +4,18 @@
   "description": "Flexible form abstraction for Vue, inspired by Formik",
   "main": "dist/vue-reform.cjs.js",
   "module": "dist/vue-reform.esm.js",
+  "files": [
+    "dist"
+  ],
+  "poi": {
+    "entry": "example/index.js",
+    "output": {
+      "dir": "example/dist"
+    }
+  },
+  "np": {
+    "yarn": false
+  },
   "scripts": {
     "build": "bili",
     "test:unit": "vue-cli-service test:unit",
@@ -12,12 +24,16 @@
     "prepublish": "npm run build",
     "release": "np"
   },
-  "files": [
-    "dist"
-  ],
-  "dependencies": {
-    "vee-validate": "^3.3.9"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MiroDojkic/vue-reform.git"
   },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MiroDojkic/vue-reform/issues"
+  },
+  "homepage": "https://github.com/MiroDojkic/vue-reform#readme",
   "devDependencies": {
     "@extensionengine/eslint-config": "^1.3.1",
     "@vue/cli-plugin-unit-jest": "^4.5.4",
@@ -40,23 +56,7 @@
     "vue": "^2.6.12",
     "vue-template-compiler": "^2.6.12"
   },
-  "bugs": {
-    "url": "https://github.com/MiroDojkic/vue-reform/issues"
-  },
-  "homepage": "https://github.com/MiroDojkic/vue-reform#readme",
-  "author": "",
-  "license": "ISC",
-  "np": {
-    "yarn": false
-  },
-  "poi": {
-    "entry": "example/index.js",
-    "output": {
-      "dir": "example/dist"
-    }
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/MiroDojkic/vue-reform.git"
+  "dependencies": {
+    "vee-validate": "^3.3.9"
   }
 }
