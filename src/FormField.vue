@@ -16,13 +16,13 @@
         'reform-touched': veeProps.touched,
         'reform-pending': veeProps.pending
       }">
-      <slot name="label" v-bind="{ value, errors, ...veeProps }">
+      <slot name="label" v-bind="{ ...veeProps, value, errors }">
         <div v-if="label" class="reform-label">{{ label }}</div>
       </slot>
       <div class="reform-control">
-        <slot name="icon" v-bind="{ value, errors, ...veeProps }"></slot>
+        <slot name="icon" v-bind="{ ...veeProps, value, errors }"></slot>
         <slot
-          name="input" :on="{ input }" v-bind="{ value, errors, ...veeProps }">
+          name="input" :on="{ input }" v-bind="{ ...veeProps, value, errors }">
           <input
             @input="input($event.target.value)"
             :value="value"
@@ -31,7 +31,7 @@
         </slot>
       </div>
     </label>
-    <slot name="error" v-bind="{ value, errors, ...veeProps }">
+    <slot name="error" v-bind="{ ...veeProps, value, errors }">
       <div class="reform-error">
         {{ errors[0] }}
       </div>
