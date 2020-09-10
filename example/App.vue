@@ -33,3 +33,19 @@ export default {
   }
 };
 </script>
+
+<style lang="css">
+* {
+  box-sizing: border-box;
+}
+
+.reform-field {
+  max-width: 9.375rem;
+  margin-bottom: 0.25rem;
+}
+
+.reform-label {
+  margin: 0 0 0.25rem;
+  font-size: 0.8125rem;
+}
+</style>
