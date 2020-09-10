@@ -1,15 +1,21 @@
 <template>
   <validation-provider
-    v-slot="{ errors }"
+    v-slot="{ errors, ...veeProps }"
     ref="validationProvider"
     v-bind="$attrs"
     :vid="name"
     :name="name"
     class="reform-field"
     tag="div">
-    <label>
-      <slot name="label">
-        <span v-if="label">{{ label }}</span>
+    <label
+      :class="{
+        'reform-invalid': veeProps.invalid,
+        'reform-dirty': veeProps.dirty,
+        'reform-required': veeProps.required,
+        'reform-changed': veeProps.changed,
+        'reform-touched': veeProps.touched,
+        'reform-pending': veeProps.pending
+      }">
       </slot>
       <div class="reform-input">
         <slot name="icon"></slot>
