@@ -105,3 +105,20 @@ Props:
 - `values: { [name]: value }`
 - `setValue: (name, value) => undefined`
 - vee-validate's [validation-observer scoped slot props](https://logaretm.github.io/vee-validate/api/validation-observer.html#scoped-slot-props)
+
+# Custom styling
+All elements rendered by `vue-reform` components are given prefixed helper classes that can be targeted.
+
+Here's a list per component:
+  - **FormControl**: `reform-form-control`
+  - **Form**: `reform-form`
+  - **FormField**:
+    - root element: `reform-field`
+    - `label` wrapper element: `reform-invalid`, `reform-dirty`, `reform-required`, `reform-changed`, `reform-touched`, `reform-pending`
+    - control wrapper element: `reform-control`
+    
+    These are optional as they're given to the default slots:
+    - label: `reform-label`
+    - default `input` control element: `reform-input`
+    - error message: `reform-error`
+
