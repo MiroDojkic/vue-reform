@@ -75,7 +75,7 @@ export default {
   border: 1px solid #e5e5e5;
 }
 
-.reform-invalid.reform-dirty .reform-control {
+.reform-invalid.reform-touched .reform-control {
   box-shadow: 0 0 2px 1px #e74c3c;
 }
 
