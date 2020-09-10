@@ -2,7 +2,8 @@
   "name": "vue-reform",
   "version": "1.0.1",
   "description": "Flexible form abstraction for Vue, inspired by Formik",
-  "author": "",
+  "main": "dist/vue-reform.cjs.js",
+  "module": "dist/vue-reform.esm.js",
   "scripts": {
     "build": "bili",
     "test:unit": "vue-cli-service test:unit",
@@ -11,8 +12,6 @@
     "prepublish": "npm run build",
     "release": "np"
   },
-  "main": "dist/vue-reform.cjs.js",
-  "module": "dist/vue-reform.esm.js",
   "files": [
     "dist"
   ],
@@ -45,6 +44,7 @@
     "url": "https://github.com/MiroDojkic/vue-reform/issues"
   },
   "homepage": "https://github.com/MiroDojkic/vue-reform#readme",
+  "author": "",
   "license": "ISC",
   "np": {
     "yarn": false
