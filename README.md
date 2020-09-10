@@ -78,18 +78,12 @@ Automatically binds `Form` or `FormControl` value and errors based on the `name`
 - vee-validate's [validation-provider props](https://logaretm.github.io/vee-validate/api/validation-provider.html#props)
 
 ### Slots
-#### **label**
-- no props
-#### **icon**
-- no props
-#### **input**
-Props:
+**label**, **icon**, **input**, **error**
+
+All slots receive following props:
 - `value: [String, Number]` - field value, bound through the name prop
 - `errors: String[]` - field errors
 - `on: { [event]: listener }` - event listeners map that should be attached to a form element
-#### **error**
-Props:
-- `errors: String[]` - field errors
 
 ## `FormControl`
 
