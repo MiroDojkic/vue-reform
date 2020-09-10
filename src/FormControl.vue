@@ -1,5 +1,9 @@
 <template>
-  <validation-observer ref="observer" v-slot="veeProps" tag="div">
+  <validation-observer
+  ref="observer"
+  v-slot="veeProps"
+  class="reform-form-control"
+  tag="div">
     <slot v-bind="{ ...veeProps, values, setValue, submit }"></slot>
   </validation-observer>
 </template>
