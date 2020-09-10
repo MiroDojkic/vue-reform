@@ -65,18 +65,23 @@ export default {
 </script>
 
 <style lang="css">
+.reform-label {
+  padding: 0 0.25rem;
+}
+
 .reform-input {
   background-color: transparent;
   border-radius: 3px;
   border: 1px solid #e5e5e5;
 }
 
-.reform-invalid .reform-input {
-  border: 1px solid red;
+.reform-invalid.reform-dirty .reform-input {
+  border-color: #e74c3c;
 }
 
 .reform-input input {
   width: 100%;
+  padding: 0.125rem 0.25rem;
   border: none;
   background-color: inherit;
 
@@ -84,7 +89,8 @@ export default {
 
 .reform-error {
   font-size: 0.75rem;
-  color: red;
+  line-height: 1.4;
+  color: #e74c3c;
 }
 
 .reform-error::after {
