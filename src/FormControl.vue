@@ -13,7 +13,17 @@ import { ValidationObserver } from 'vee-validate';
 
 export default {
   name: 'vue-reform-control',
-  data: () => ({ values: {} }),
+  data() {
+    return {
+      values: { ...this.initialValues }
+    };
+  },
+  props: {
+    initialValues: {
+      type: Object,
+      default: () => ({})
+    }
+  },
   provide() {
     return {
       values: this.values,
