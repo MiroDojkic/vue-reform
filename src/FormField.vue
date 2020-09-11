@@ -1,6 +1,6 @@
 <template>
   <validation-provider
-    v-slot="{ errors, ...veeProps }"
+    v-slot="veeProps"
     ref="validationProvider"
     v-bind="$attrs"
     :vid="name"
@@ -16,13 +16,13 @@
         'reform-touched': veeProps.touched,
         'reform-pending': veeProps.pending
       }">
-      <slot name="label" v-bind="{ ...veeProps, value, errors }">
+      <slot name="label" v-bind="{ ...veeProps, value }">
         <div v-if="label" class="reform-label">{{ label }}</div>
       </slot>
       <div class="reform-control">
-        <slot name="icon" v-bind="{ ...veeProps, value, errors }"></slot>
+        <slot name="icon" v-bind="{ ...veeProps, value }"></slot>
         <slot
-          name="input" :on="{ input }" v-bind="{ ...veeProps, value, errors }">
+          name="input" :on="{ input }" v-bind="{ ...veeProps, value }">
           <input
             @input="input($event.target.value)"
             :value="value"
@@ -31,9 +31,9 @@
         </slot>
       </div>
     </label>
-    <slot name="error" v-bind="{ ...veeProps, value, errors }">
+    <slot name="error" v-bind="{ ...veeProps, value }">
       <div class="reform-error">
-        {{ errors[0] }}
+        {{ veeProps.errors[0] }}
       </div>
     </slot>
   </validation-provider>
