@@ -58,6 +58,9 @@ import { FormControl, FormField } from 'vue-reform';
 
 `form` element with bounded `FormControl`'s submit listener.
 
+### Props
+- `initialValues: Object` - used to initialize form data
+
 ### Events
 #### **submit**
 Parameters:
@@ -90,6 +93,9 @@ All slots receive following props:
 Top-level form component that keeps track of form's state.
 Form fields are passed using the default slot.
 Emits `submit` event with `formBag` argument.
+
+### Props
+- `initialValues: Object` - used to initialize form data
 
 ### Events
 #### **submit**
