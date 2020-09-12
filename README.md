@@ -58,6 +58,9 @@ import { FormControl, FormField } from 'vue-reform';
 
 `form` element with bounded `FormControl`'s submit listener.
 
+### Props
+- `initialValues: Object` - used to initialize form data
+
 ### Events
 #### **submit**
 Parameters:
@@ -78,24 +81,21 @@ Automatically binds `Form` or `FormControl` value and errors based on the `name`
 - vee-validate's [validation-provider props](https://logaretm.github.io/vee-validate/api/validation-provider.html#props)
 
 ### Slots
-#### **label**
-- no props
-#### **icon**
-- no props
-#### **input**
-Props:
+**label**, **icon**, **input**, **error**
+
+All slots receive following props:
 - `value: [String, Number]` - field value, bound through the name prop
 - `errors: String[]` - field errors
 - `on: { [event]: listener }` - event listeners map that should be attached to a form element
-#### **error**
-Props:
-- `errors: String[]` - field errors
 
 ## `FormControl`
 
 Top-level form component that keeps track of form's state.
 Form fields are passed using the default slot.
 Emits `submit` event with `formBag` argument.
+
+### Props
+- `initialValues: Object` - used to initialize form data
 
 ### Events
 #### **submit**
@@ -111,3 +111,20 @@ Props:
 - `values: { [name]: value }`
 - `setValue: (name, value) => undefined`
 - vee-validate's [validation-observer scoped slot props](https://logaretm.github.io/vee-validate/api/validation-observer.html#scoped-slot-props)
+
+# Custom styling
+All elements rendered by `vue-reform` components are given prefixed helper classes that can be targeted.
+
+Here's a list per component:
+  - **FormControl**: `reform-form-control`
+  - **Form**: `reform-form`
+  - **FormField**:
+    - root element: `reform-field`
+    - `label` wrapper element: `reform-invalid`, `reform-dirty`, `reform-required`, `reform-changed`, `reform-touched`, `reform-pending`
+    - control wrapper element: `reform-control`
+    
+    These are optional as they're given to the default slots:
+    - label: `reform-label`
+    - default `input` control element: `reform-input`
+    - error message: `reform-error`
+

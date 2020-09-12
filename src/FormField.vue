@@ -1,29 +1,39 @@
 <template>
   <validation-provider
-    v-slot="{ errors }"
+    v-slot="veeProps"
     ref="validationProvider"
     v-bind="$attrs"
     :vid="name"
     :name="name"
     class="reform-field"
     tag="div">
-    <label>
-      <slot name="label">
-        <span v-if="label">{{ label }}</span>
+    <label
+      :class="{
+        'reform-invalid': veeProps.invalid,
+        'reform-dirty': veeProps.dirty,
+        'reform-required': veeProps.required,
+        'reform-changed': veeProps.changed,
+        'reform-touched': veeProps.touched,
+        'reform-pending': veeProps.pending
+      }">
+      <slot name="label" v-bind="{ ...veeProps, value }">
+        <div v-if="label" class="reform-label">{{ label }}</div>
       </slot>
-      <div class="reform-input">
-        <slot name="icon"></slot>
-        <slot name="input" :on="{ input }" v-bind="{ value, errors }">
+      <div class="reform-control">
+        <slot name="icon" v-bind="{ ...veeProps, value }"></slot>
+        <slot
+          name="input" :on="{ input }" v-bind="{ ...veeProps, value }">
           <input
             @input="input($event.target.value)"
             :value="value"
-            :placeholder="placeholder">
+            :placeholder="placeholder"
+            class="reform-input">
         </slot>
       </div>
     </label>
-    <slot name="error" :errors="errors">
+    <slot name="error" v-bind="{ ...veeProps, value }">
       <div class="reform-error">
-        {{ errors[0] }}
+        {{ veeProps.errors[0] }}
       </div>
     </slot>
   </validation-provider>
@@ -55,18 +65,23 @@ export default {
 </script>
 
 <style lang="css">
-.reform-input {
+.reform-label {
+  padding: 0 0.25rem;
+}
+
+.reform-control {
   background-color: transparent;
   border-radius: 3px;
   border: 1px solid #e5e5e5;
 }
 
-.reform-invalid .reform-input {
-  border: 1px solid red;
+.reform-invalid.reform-touched .reform-control {
+  box-shadow: 0 0 2px 1px #e74c3c;
 }
 
-.reform-input input {
+.reform-control .reform-input {
   width: 100%;
+  padding: 0.125rem 0.25rem;
   border: none;
   background-color: inherit;
 
@@ -74,7 +89,8 @@ export default {
 
 .reform-error {
   font-size: 0.75rem;
-  color: red;
+  line-height: 1.4;
+  color: #e74c3c;
 }
 
 .reform-error::after {
