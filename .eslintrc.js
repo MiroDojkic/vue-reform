@@ -7,10 +7,13 @@ module.exports = {
     'vue/comment-directive': 'off'
   },
   overrides: [{
-    files: ['src/**', 'example/**'],
+    files: ['src/**', 'example/**', 'tests/**'],
     parserOptions: {
       parser: 'babel-eslint',
       sourceType: 'module'
+    },
+    env: {
+      jest: true
     }
   }]
 };
