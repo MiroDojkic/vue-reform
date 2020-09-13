@@ -1,7 +1,7 @@
 import FormField from '@/FormField.vue';
 import { mount } from '@vue/test-utils';
 
-describe('Receive props', () => {
+describe('Display props', () => {
   const provide = {
     values() {
       return {};
@@ -10,36 +10,6 @@ describe('Receive props', () => {
       return () => {};
     }
   };
-
-  it('should receive name prop', () => {
-    const wrapper = mount(FormField, {
-      provide,
-      propsData: {
-        name: 'testname'
-      }
-    });
-    expect(wrapper.props('name')).toBe('testname');
-  });
-
-  it('default label prop value should be null', () => {
-    const wrapper = mount(FormField, {
-      provide,
-      propsData: {
-        name: 'test'
-      }
-    });
-    expect(wrapper.props('label')).toBe(null);
-  });
-
-  it('default placeholder prop value should be null', () => {
-    const wrapper = mount(FormField, {
-      provide,
-      propsData: {
-        name: 'test'
-      }
-    });
-    expect(wrapper.props('placeholder')).toBe(null);
-  });
 
   it('should display label prop text', () => {
     const wrapper = mount(FormField, {
@@ -50,5 +20,17 @@ describe('Receive props', () => {
       }
     });
     expect(wrapper.text()).toContain('Test label');
+  });
+
+  it('should display placeholder prop text', () => {
+    const wrapper = mount(FormField, {
+      provide,
+      propsData: {
+        name: 'test',
+        placeholder: 'Test placeholder'
+      }
+    });
+    const input = wrapper.find('[data-testid="default-input"]');
+    expect(input.element.placeholder).toBe('Test placeholder');
   });
 });
