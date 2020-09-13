@@ -1,9 +1,9 @@
 <template>
   <validation-observer
-  ref="observer"
-  v-slot="veeProps"
-  class="reform-form-control"
-  tag="div">
+    ref="observer"
+    v-slot="veeProps"
+    class="reform-form-control"
+    tag="div">
     <slot v-bind="{ ...veeProps, values, setValue, submit }"></slot>
   </validation-observer>
 </template>
@@ -13,16 +13,16 @@ import { ValidationObserver } from 'vee-validate';
 
 export default {
   name: 'vue-reform-control',
-  data() {
-    return {
-      values: { ...this.initialValues }
-    };
-  },
   props: {
     initialValues: {
       type: Object,
       default: () => ({})
     }
+  },
+  data() {
+    return {
+      values: { ...this.initialValues }
+    };
   },
   provide() {
     return {
