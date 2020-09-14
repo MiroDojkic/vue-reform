@@ -1,5 +1,5 @@
 function flushPromises() {
-  return new Promise(resolve => setTimeout(resolve));
+  return new Promise(setImmediate);
 }
 
 export { flushPromises };
