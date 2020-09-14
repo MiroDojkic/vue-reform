@@ -3,16 +3,17 @@ import { flushPromises } from '../utils';
 import FormField from '@/FormField.vue';
 import { mount } from '@vue/test-utils';
 
-describe('display props', () => {
-  const provide = {
-    values() {
-      return {};
+let provide;
+beforeEach(() => {
+  provide = {
+    values: {
+      test: ''
     },
-    setValue() {
-      return () => {};
-    }
+    setValue: jest.fn()
   };
+});
 
+describe('display props', () => {
   it('should display label prop text', () => {
     const wrapper = mount(FormField, {
       provide,
@@ -37,9 +38,6 @@ describe('display props', () => {
   });
 
   it('should invoke injected setValue', async () => {
-    const values = { test: '' };
-    const setValue = jest.fn();
-    const provide = { values, setValue };
     const wrapper = render(FormField, {
       provide,
       propsData: { name: 'test' }
@@ -47,20 +45,11 @@ describe('display props', () => {
     const input = wrapper.getByTestId('default-input');
     await fireEvent.update(input, 'new value');
     await flushPromises();
-    expect(setValue).toBeCalledTimes(1);
+    expect(provide.setValue).toBeCalledTimes(1);
   });
 });
 
 describe('display slots', () => {
-  const provide = {
-    values() {
-      return {};
-    },
-    setValue() {
-      return () => {};
-    }
-  };
-
   it('should display label slot', () => {
     const wrapper = mount(FormField, {
       provide,
@@ -123,12 +112,17 @@ describe('correctly injecting provided data', () => {
       setValue: () => {}
     };
     const wrapper = mount(FormField, {
-      provide,
+      provide: {
+        ...provide,
+        values: {
+          test: 'test'
+        }
+      },
       propsData: {
         name: 'test'
       }
     });
     const input = wrapper.find('[data-testid="default-input"]');
-    expect(input.element.value).toBe('hello');
+    expect(input.element.value).toBe('test');
   });
 });
