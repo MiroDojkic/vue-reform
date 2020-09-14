@@ -4,7 +4,6 @@ import FormField from '@/FormField.vue';
 
 let provide;
 beforeEach(() => {
-  debugger;
   provide = {
     values: {
       test: ''
