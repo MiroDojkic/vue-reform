@@ -15,7 +15,8 @@
         'reform-changed': veeProps.changed,
         'reform-touched': veeProps.touched,
         'reform-pending': veeProps.pending
-      }">
+      }"
+      data-testid="label">
       <slot name="label" v-bind="{ ...veeProps, value }">
         <div v-if="label" class="reform-label">{{ label }}</div>
       </slot>

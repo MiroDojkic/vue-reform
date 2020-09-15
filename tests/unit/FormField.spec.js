@@ -119,3 +119,33 @@ describe('correctly injecting provided data', () => {
     expect(provide.setValue).toBeCalledTimes(1);
   });
 });
+
+describe('validation classes', () => {
+  it('should have reform-pending', async () => {
+    const wrapper = render(FormField, {
+      provide,
+      propsData: {
+        name: 'test'
+      }
+    });
+    const label = await wrapper.getByTestId('label');
+    expect(label.classList).toContain('reform-pending');
+  });
+
+  it('should set reform-dirty', async () => {
+    const wrapper = render(FormField, {
+      provide,
+      propsData: {
+        name: 'test'
+      }
+    });
+    const label = await wrapper.getByTestId('label');
+    expect(label.classList).not.toContain('reform-dirty');
+
+    const input = wrapper.getByTestId('default-input');
+    await fireEvent.update(input, 'new value');
+    await flushPromises();
+
+    expect(label.classList).toContain('reform-dirty');
+  });
+});
