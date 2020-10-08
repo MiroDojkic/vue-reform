@@ -98,17 +98,6 @@ describe('correctly injecting provided data', () => {
   });
 });
 
-  it('should have reform-pending', async () => {
-    const wrapper = render(FormField, {
-      provide,
-      propsData: {
-        name: 'test'
-      }
-    });
-    const label = await wrapper.getByTestId('label');
-    expect(label.classList).toContain('reform-pending');
-  });
-
 describe('form state classes', () => {
   it('should set reform-dirty', async () => {
     const wrapper = render(FormField, {
