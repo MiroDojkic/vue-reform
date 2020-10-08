@@ -5,9 +5,7 @@ import FormField from '@/FormField.vue';
 let provide;
 beforeEach(() => {
   provide = {
-    values: {
-      test: ''
-    },
+    values: { test: '' },
     setValue: jest.fn()
   };
 });
@@ -41,12 +39,8 @@ describe('display slots', () => {
   it('should display label slot', () => {
     const wrapper = render(FormField, {
       provide,
-      propsData: {
-        name: 'test'
-      },
-      slots: {
-        label: 'Custom label slot'
-      }
+      propsData: { name: 'test' },
+      slots: { label: 'Custom label slot' }
     });
     wrapper.getByText('Custom label slot');
   });
@@ -54,12 +48,8 @@ describe('display slots', () => {
   it('should display icon slot', () => {
     const wrapper = render(FormField, {
       provide,
-      propsData: {
-        name: 'test'
-      },
-      slots: {
-        icon: 'Custom icon slot'
-      }
+      propsData: { name: 'test' },
+      slots: { icon: 'Custom icon slot' }
     });
     wrapper.getByText('Custom icon slot');
   });
@@ -67,12 +57,8 @@ describe('display slots', () => {
   it('should display input slot', () => {
     const wrapper = render(FormField, {
       provide,
-      propsData: {
-        name: 'test'
-      },
-      slots: {
-        input: 'Custom input slot'
-      }
+      propsData: { name: 'test' },
+      slots: { input: 'Custom input slot' }
     });
     wrapper.getByText('Custom input slot');
   });
@@ -80,12 +66,8 @@ describe('display slots', () => {
   it('should display error slot', () => {
     const wrapper = render(FormField, {
       provide,
-      propsData: {
-        name: 'test'
-      },
-      slots: {
-        error: 'Custom error slot'
-      }
+      propsData: { name: 'test' },
+      slots: { error: 'Custom error slot' }
     });
     wrapper.getByText('Custom error slot');
   });
@@ -96,13 +78,9 @@ describe('correctly injecting provided data', () => {
     const wrapper = render(FormField, {
       provide: {
         ...provide,
-        values: {
-          test: 'hello'
-        }
+        values: { test: 'hello' }
       },
-      propsData: {
-        name: 'test'
-      }
+      propsData: { name: 'test' }
     });
     const input = wrapper.getByTestId('default-input');
     expect(input.value).toBe('hello');
@@ -120,7 +98,6 @@ describe('correctly injecting provided data', () => {
   });
 });
 
-describe('validation classes', () => {
   it('should have reform-pending', async () => {
     const wrapper = render(FormField, {
       provide,
@@ -132,12 +109,11 @@ describe('validation classes', () => {
     expect(label.classList).toContain('reform-pending');
   });
 
+describe('form state classes', () => {
   it('should set reform-dirty', async () => {
     const wrapper = render(FormField, {
       provide,
-      propsData: {
-        name: 'test'
-      }
+      propsData: { name: 'test' }
     });
     const label = await wrapper.getByTestId('label');
     expect(label.classList).not.toContain('reform-dirty');
