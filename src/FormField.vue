@@ -15,7 +15,8 @@
         'reform-changed': veeProps.changed,
         'reform-touched': veeProps.touched,
         'reform-pending': veeProps.pending
-      }">
+      }"
+      data-testid="label">
       <slot name="label" v-bind="{ ...veeProps, value }">
         <div v-if="label" class="reform-label">{{ label }}</div>
       </slot>
@@ -27,7 +28,8 @@
             @input="input($event.target.value)"
             :value="value"
             :placeholder="placeholder"
-            class="reform-input">
+            class="reform-input"
+            data-testid="default-input">
         </slot>
       </div>
     </label>
